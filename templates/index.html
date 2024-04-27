@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload CV Folder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+        form {
+            text-align: center;
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="file"] {
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+        input[type="submit"] {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 70px;
+        }
+        .download-btn {
+            text-align: center;
+            margin-top: 30px;
+        }
+        a {
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #008CBA;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 10px;
+            max-width: 300px;
+            transition: background-color 0.3s;
+        }
+        a:hover {
+            background-color: #005f77;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload CV Folder</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="folder">Select a folder containing CV files:</label><br>
+        <input type="file" id="folder" name="folder" webkitdirectory directory mozdirectory><br>
+        <input type="submit" value="Upload">
+    </form>
+    
+    {% if excel_file %}
+    <h2>Download Excel Sheet</h2>
+    <div class="download-btn">
+        <a href="/download">Download Excel</a>
+    </div>
+    {% endif %}
+</body>
+</html>
